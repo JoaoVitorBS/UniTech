@@ -1,0 +1,71 @@
+<div class="col-sm-4">
+  <div class="form-group">
+    <label>{{form.status_servico.label}}</label><strong style="color:red;"> *</strong>
+    {% if form.status_servico.errors %}<label class="error">{% for error in form.status_servico.errors %}{{error}}{% endfor %}</label>{% endif %}
+    <div class="input-group">
+      <div class="form-line">
+        {{form.status_servico}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-8">
+  <div class="form-group">
+    <label>{{form.dispositivo.label}}</label><strong style="color:red;"> *</strong>
+      {% if form.dispositivo.errors %}<label class="error">{% for error in form.dispositivo.errors %}{{error}}{% endfor %}</label>{% endif %}
+    <div class="input-group">
+      <div class="form-line">
+        {{form.dispositivo}}
+      </div>
+      <a class="input-group-addon popup" style="color: green;" title="Adicionar dispositivo" href="{% url 'cadastro:adddispositivoview' %}"><i class="material-icons add-new-icon" title="Adicionar">&#xE147;</i></a>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group">
+    <label>{{form.peca.label}}</label><strong style="color:red;"> *</strong>
+      {% if form.peca.errors %}<label class="error">{% for error in form.peca.errors %}{{error}}{% endfor %}</label>{% endif %}
+    <div class="input-group">
+      <div class="form-line">
+        {{form.peca}}
+      </div>
+      <a class="input-group-addon popup" style="color: green;" title="Adicionar dispositivo" href="{% url 'cadastro:adddispositivoview' %}"><i class="material-icons add-new-icon" title="Adicionar">&#xE147;</i></a>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group">
+    <div class="form-line">
+      <label>{{form.motivo_troca.label}}</label>
+      {% if form.motivo_troca.errors %}<label class="error">{% for error in form.motivo_troca.errors %}{{error}}{% endfor %}</label>{% endif %}
+      {{form.motivo_troca}}
+    </div>
+  </div>
+</div>
+
+
+<div class="col-sm-4">
+  <div class="form-group">
+    <label>{{form.colaborador.label}}</label><strong style="color:red;"> *</strong>
+    {% if form.colaborador.errors %}<label class="error">{% for error in form.colaborador.errors %}{{error}}{% endfor %}</label>{% endif %}
+    <div class="input-group">
+      <div class="form-line">
+        {{form.colaborador}}
+      </div>
+      <a class="input-group-addon popup" style="color: green;" title="Adicionar colaborador" href="{% url 'cadastro:addcolaboradorview' %}"><i class="material-icons add-new-icon" title="Adicionar">&#xE147;</i></a>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12">
+  <div class="form-group">
+    <div class="form-line">
+      <label>{{form.inf_adicionais.label}}</label>
+      {% if form.inf_adicionais.errors %}<label class="error">{% for error in form.inf_adicionais.errors %}{{error}}{% endfor %}</label>{% endif %}
+      {{form.inf_adicionais}}
+    </div>
+  </div>
+</div>

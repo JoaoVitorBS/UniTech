@@ -1,0 +1,149 @@
+{%extends 'base/base.html'%}
+
+{%block title%}Página Inicial{%endblock%}
+{%block content%}
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>INFORMAÇÕES</h2>
+            <small>Informações do sistema para o dia {{data_atual}}, <b>atualize esta página diariamente.</b></small>
+        </div>
+        <div class="row clearfix">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card inicial-card">
+                    <div class="header">
+                        <h2><i class="material-icons">&#xE85D;</i>CADASTRO</h2>
+                        <div>
+                            <small>N° de itens adicionados a base de dados</small>
+                        </div>
+                    </div>
+                    <div class="body">
+                        <table class="table table-hover">
+                            <tbody>
+                            {% if perms.cadastro.view_dispositivo %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'cadastro:listadispositivosview' %}">
+                                        <div style="height:100%;width:100%;">
+                                            <b>{{quantidade_cadastro.dispositivos}}</b> Dispositivos cadastrados
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if perms.cadastro.view_peça %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'cadastro:listapeçasview' %}">
+                                        <div style="height:100%;width:100%;">
+                                            <b>{{quantidade_cadastro.peças}}</b> Peças cadastradas
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if perms.cadastro.view_departamento %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'cadastro:listadepartamentosview' %}">
+                                        <div style="height:100%;width:100%;">
+                                            <b>{{quantidade_cadastro.departamentos}}</b> Departamentos cadastrados
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if perms.cadastro.view_colaborador %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'cadastro:listacolaboradoresview' %}">
+                                        <div style="height:100%;width:100%;">
+                                            <b>{{quantidade_cadastro.colaboradores}}</b> Colaboradores cadastrados
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            {% if perms.cadastro.view_tarefa %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'cadastro:listatarefasview' %}">
+                                        <div style="height:100%;width:100%;">
+                                            <b>{{quantidade_cadastro.tarefas}}</b> Tarefas cadastradas
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card inicial-card">
+                    <div class="header">
+                        <h2><i class="material-icons" style="color:#ffff00;">&#xE85A;</i>ALERTAS ({{data_atual}})</h2>
+                    </div>
+                    <div class="body">
+                        <table class="table table-hover"></table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="card inicial-card">
+                    <div class="header">
+                        <h2><i class="material-icons" style="color:#ff6600;">&#xE85A;</i>TAREFAS AGENDADAS ({{data_atual}})</h2>
+                    </div>
+                    <div class="body">
+                        <table class="table table-hover"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if perms.cadastro.view_tarefa %}
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            LISTA DE TAREFAS<b style="padding-left:4px;">(DIA {{data_atual}})</b>
+                        </h2>
+                        <div class="header-btn">
+                            <a href="{% url 'cadastro:listatarefasview' %}" class="btn btn-warning"><i
+                                    class="material-icons">&#xE8A0;</i><span> LISTA DE TAREFAS</span></a>
+                        </div>
+                    </div>
+                    <div class="body lista">
+                        <table class="table table-bordered lista-table">
+                            <thead>
+                            <tr>
+                                <th>Data de Abertura</th>
+                                <th>Status</th>
+                                <th>Dispositivo</th>
+                                <th>Defeito</th>
+                                <th>Colaborador</th>
+                                <th>Inf. Adicionais</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if tarefa %}
+                            <tr>
+                                <td>{{tarefa.data_abertura}}</td>
+                                <td>{{tarefa.status_servico}}</td>
+                                <td>{{tarefa.dispositivo}}</td>
+                                <td>{{tarefa.defeito}}</td>
+                                <td>{{tarefa.colaborador}}</td>
+                                <td>{{tarefa.inf_adicionais}}</td>
+                            </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{%endblock%}

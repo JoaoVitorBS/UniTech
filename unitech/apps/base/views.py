@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+
+from django.views.generic import TemplateView
+from django.shortcuts import render
+
+from unitech.apps.cadastro.models import Dispositivo, Departamento, Tarefa, Colaborador, Peça, TrocaPecas
+
+from datetime import datetime
+
+
+class IndexView(TemplateView):
+    template_name = 'base/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        quantidade_cadastro = {}
+        data_atual = datetime.now().date()
+
+        context['data_atual'] = data_atual.strftime('%d/%m/%Y')
+
+        quantidade_cadastro['dispositivos'] = Dispositivo.objects.all().count()
+        quantidade_cadastro['peças'] = Peça.objects.all().count()
+        quantidade_cadastro['departamentos'] = Departamento.objects.all().count()
+        quantidade_cadastro['colaboradores'] = Colaborador.objects.all().count()
+        quantidade_cadastro['tarefas'] = Tarefa.objects.all().count()
+        quantidade_cadastro['trocaPecas'] = TrocaPecas.objects.all().count()
+        context['quantidade_cadastro'] = quantidade_cadastro
+
+        return context
+
+
+def handler404(request):
+    response = render(request, '404.html', {})
+    response.status_code = 404
+    return response
+
+
+def handler500(request):
+    response = render(request, '500.html', {})
+    response.status_code = 500
+    return response
