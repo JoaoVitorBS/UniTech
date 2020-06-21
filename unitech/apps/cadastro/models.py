@@ -5,7 +5,7 @@ from django.db import models
 class Colaborador(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=True)
     telefone = models.CharField(max_length=18, null=False, blank=True)
-    cargo = models.CharField(max_length=100, null=False, blank=True)
+    cargo = models.CharField(max_length=50, null=False, blank=True)
 
     class Meta:
         verbose_name = "Colaborador"
@@ -104,7 +104,7 @@ class Departamento(models.Model):
     departamento_desc = models.CharField(max_length=30, null=False, blank=True, unique=True)
     nome_responsavel = models.CharField(max_length=100, null=False, blank=True)
     telefone_responsavel = models.CharField(max_length=18, null=False, blank=True)
-    email_responsavel = models.CharField(max_length=18, null=True, blank=False)
+    email_responsavel = models.CharField(max_length=100, null=True, blank=False)
 
     class Meta:
         verbose_name = "Departamento"
@@ -124,8 +124,8 @@ class Departamento(models.Model):
 # ---------- Peças
 class Peça(models.Model):
     ESTADO_CHOICES = (
-        ("NOVA", "NOVA"),
-        ("USADA", "USADA"),
+        ("NOVO", "NOVO"),
+        ("USADO", "USADO"),
         ("DESCARTE", "DESCARTE")
     )
     codigo = models.CharField(max_length=15, unique=True, null=False, blank=False)

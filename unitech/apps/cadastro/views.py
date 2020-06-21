@@ -360,7 +360,7 @@ class AdicionarColaboradorView(AdicionarOutrosBaseView):
 
 
 class ColaboradoresListView(CustomListView):
-    model = Marca
+    model = Colaborador
     template_name = 'cadastro/gerais/colaborador_list.html'
     context_object_name = 'all_colaboradores'
     success_url = reverse_lazy('cadastro:listacolaboradoresview')
