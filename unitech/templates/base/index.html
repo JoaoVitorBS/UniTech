@@ -75,6 +75,17 @@
                                 </td>
                             </tr>
                             {% endif %}
+                            {% if perms.trocaPecas.view_trocaPeca %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'cadastro:listatarefasview' %}">
+                                        <div style="height:100%;width:100%;">
+                                            <b>{{quantidade_cadastro.trocaPecas}}</b> Troca de Peças cadastradas
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endif %}
                             </tbody>
                         </table>
                     </div>

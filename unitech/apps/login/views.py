@@ -28,7 +28,7 @@ import operator
 from functools import reduce
 
 DEFAULT_PERMISSION_MODELS = ['dispositivo', 'departamento', 'servico', 'unidade', 'marca', 'categoria', 'tarefa',
-                             'colaborador', 'peça', 'trocaPeca']
+                             'colaborador', 'peça', 'trocaPecas']
 
 
 class UserFormView(View):
