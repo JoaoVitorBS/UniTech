@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc1ef244-31df-4c4d-9222-238e1b483bb9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitech/apps/cadastro/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/unitech/apps/cadastro/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitech/templates/base/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/unitech/templates/base/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unitech/templates/base/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/unitech/templates/base/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitech/templates/cadastro/gerais/dispositivo_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/unitech/templates/cadastro/gerais/dispositivo_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitech/templates/cadastro/gerais/tarefa_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/unitech/templates/cadastro/gerais/tarefa_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unitech/templates/cadastro/gerais/trocaPeca_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/unitech/templates/cadastro/gerais/trocaPeca_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,10 +118,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="312" y="50" key="SettingsEditor/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1592681852298" />
-    <state x="338" y="319" key="com.intellij.ide.util.TipDialog" timestamp="1592919929945">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="287" y="270" key="com.intellij.ide.util.TipDialog" timestamp="1593021499125">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
-    <state x="287" y="270" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1592771884344" />
+    <state x="287" y="270" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1593021499125" />
     <state x="338" y="319" key="com.intellij.ide.util.TipDialog/0.0.1600.860/1600.0.1366.728@0.0.1600.860" timestamp="1592919929945" />
     <state x="463" y="180" key="search.everywhere.popup" timestamp="1592621733491">
       <screen x="0" y="0" width="1600" height="860" />

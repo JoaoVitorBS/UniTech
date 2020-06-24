@@ -3,7 +3,7 @@
 {%block title%}Página Inicial{%endblock%}
 {%block content%}
 <section class="content">
-    <div class="container-fluid">
+    <div class="container-fluid lista">
         <div class="block-header">
             <h2>INFORMAÇÕES</h2>
             <small>Informações do sistema para o dia {{data_atual}}, <b>atualize esta página diariamente.</b></small>
@@ -134,28 +134,30 @@
             </div>
         </div>
         {% if perms.cadastro.view_tarefa %}
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            LISTA DE TAREFAS<b style="padding-left:4px;">(DIA {{data_atual}})</b>
-                        </h2>
-                        <div class="header-btn">
-                            <a href="{% url 'cadastro:listatarefasview' %}" class="btn btn-warning"><i
-                                    class="material-icons">&#xE8A0;</i><span> LISTA DE TAREFAS</span></a>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 lista-content">
+            <div class="card">
+                <form action="" method="post">
+                    <div class="body">
+                        <div class="header">
+                            <h2>
+                                LISTA DE TAREFAS<b style="padding-left:4px;">(DIA {{data_atual}})</b>
+                            </h2>
+                            <div class="header-btn">
+                                <a href="{% url 'cadastro:listatarefasview' %}" class="btn btn-warning"><i
+                                        class="material-icons">&#xE8A0;</i><span> LISTA DE TAREFAS</span></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="body lista">
-                        <div style="height:100%;width:100%;">
-                            <table class="table table-bordered lista-table">
+                        <div class="table-responsive">
+                            <table id="lista-database" class="table table-bordered table-striped lista-table">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Data de Abertura</th>
                                     <th>Status</th>
                                     <th>Dispositivo</th>
                                     <th>Defeito</th>
-                                    <th>Colaborador</th>
+                                    <th>Serviço</th>
+                                    <th>Técnico Responsável</th>
                                     <th>Inf. Adicionais</th>
                                 </tr>
                                 </thead>
@@ -163,14 +165,14 @@
                                 {% if all_tarefas%}
                                 {% for tarefa in all_tarefas %}
                                 <tr class="clickable-row" data-href="{% url 'cadastro:editartarefaview' tarefa.id %}">
+                                    <td>{{tarefa.id}}</td>
                                     <td>{{tarefa.data_abertura}}</td>
-                                    <td>{{tarefa.status}}</td>
+                                    <td>{{tarefa.status_servico}}</td>
                                     <td>{{tarefa.dispositivo}}</td>
                                     <td>{{tarefa.defeito}}</td>
                                     <td>{{tarefa.servico}}</td>
                                     <td>{{tarefa.colaborador}}</td>
                                     <td>{{tarefa.inf_adicionais}}</td>
-
                                 </tr>
                                 {% endfor %}
                                 {%endif%}
@@ -178,7 +180,7 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         {% endif %}
