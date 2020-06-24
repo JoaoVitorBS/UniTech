@@ -31,6 +31,7 @@
                             <table id="lista-database" class="table table-bordered table-striped lista-table">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Código</th>
                                     <th>Descrição</th>
                                     <th>Categoria</th>
@@ -44,7 +45,9 @@
                                 <tbody>
                                 {% if all_dispositivos%}
                                 {% for dispositivo in all_dispositivos %}
-                                <tr class="clickable-row" data-href="{% url 'cadastro:editardispositivoview' dispositivo.id %}">
+                                <tr class="clickable-row"
+                                    data-href="{% url 'cadastro:editardispositivoview' dispositivo.id %}">
+                                    <td>{{dispositivo.id}}</td>
                                     <td>{{dispositivo.codigo}}</td>
                                     <td>{{dispositivo.descricao}}</td>
                                     <td>{{dispositivo.categoria}}</td>

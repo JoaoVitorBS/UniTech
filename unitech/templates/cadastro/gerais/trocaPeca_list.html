@@ -31,6 +31,7 @@
                             <table id="lista-database" class="table table-bordered table-striped lista-table">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Data da Troca</th>
                                     <th>Status</th>
                                     <th>Dispositivo</th>
@@ -45,8 +46,9 @@
                                 {% if all_trocaPecas%}
                                 {% for trocaPeca in all_trocaPecas %}
                                 <tr class="clickable-row" data-href="{% url 'cadastro:editartrocaPecaview' trocaPeca.id %}">
+                                    <td>{{trocaPeca.id}}</td>
                                     <td>{{trocaPeca.data_troca}}</td>
-                                    <td>{{trocaPeca.status}}</td>
+                                    <td>{{trocaPeca.status_servico}}</td>
                                     <td>{{trocaPeca.dispositivo}}</td>
                                     <td>{{trocaPeca.peca}}</td>
                                     <td>{{trocaPeca.motivo_troca}}</td>

@@ -144,11 +144,11 @@ class Peça(models.Model):
         )
 
     def __unicode__(self):
-        s = u'%s' % self.peça_desc
+        s = u'(%s) %s' % (self.codigo, self.peça_desc)
         return s
 
     def __str__(self):
-        s = u'%s' % self.peça_desc
+        s = u'(%s) %s' % (self.codigo, self.peça_desc)
         return s
 
 
@@ -175,11 +175,11 @@ class Dispositivo(models.Model):
         )
 
     def __unicode__(self):
-        s = u'%s' % self.descricao
+        s = u'(%s) %s - %s' % (self.codigo, self.descricao, self.departamento)
         return s
 
     def __str__(self):
-        s = u'%s' % self.descricao
+        s = u'(%s) %s - %s' % (self.codigo, self.descricao, self.departamento)
         return s
 
 
@@ -258,11 +258,31 @@ def get_sigla_unidade(self):
         return ''
 
 
-def __unicode__(self):
-    s = u'%s' % self.descricao
-    return s
+@property
+def format_dispositivo(self):
+    if self.dispositivo:
+        return self.codigo.descricao.departamento
+    else:
+        return ''
 
 
-def __str__(self):
-    s = u'%s' % self.descricao
-    return s
+def get_dispositivo(self):
+    if self.dispositivo:
+        return self.codigo.descricao.departamento
+    else:
+        return ''
+
+
+@property
+def format_peça(self):
+    if self.peça:
+        return self.codigo.peça_desc
+    else:
+        return ''
+
+
+def get_peça(self):
+    if self.peça:
+        return self.codigo.peça_desc
+    else:
+        return ''

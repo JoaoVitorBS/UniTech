@@ -31,6 +31,7 @@
                             <table id="lista-database" class="table table-bordered table-striped lista-table">
                                 <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Data de Abertura</th>
                                     <th>Status</th>
                                     <th>Dispositivo</th>
@@ -45,8 +46,9 @@
                                 {% if all_tarefas%}
                                 {% for tarefa in all_tarefas %}
                                 <tr class="clickable-row" data-href="{% url 'cadastro:editartarefaview' tarefa.id %}">
+                                    <td>{{tarefa.id}}</td>
                                     <td>{{tarefa.data_abertura}}</td>
-                                    <td>{{tarefa.status}}</td>
+                                    <td>{{tarefa.status_servico}}</td>
                                     <td>{{tarefa.dispositivo}}</td>
                                     <td>{{tarefa.defeito}}</td>
                                     <td>{{tarefa.servico}}</td>

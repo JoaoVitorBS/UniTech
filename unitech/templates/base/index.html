@@ -147,30 +147,36 @@
                         </div>
                     </div>
                     <div class="body lista">
-                        <table class="table table-bordered lista-table">
-                            <thead>
-                            <tr>
-                                <th>Data de Abertura</th>
-                                <th>Status</th>
-                                <th>Dispositivo</th>
-                                <th>Defeito</th>
-                                <th>Colaborador</th>
-                                <th>Inf. Adicionais</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% if tarefa %}
-                            <tr>
-                                <td>{{tarefa.data_abertura}}</td>
-                                <td>{{tarefa.status_servico}}</td>
-                                <td>{{tarefa.dispositivo}}</td>
-                                <td>{{tarefa.defeito}}</td>
-                                <td>{{tarefa.colaborador}}</td>
-                                <td>{{tarefa.inf_adicionais}}</td>
-                            </tr>
-                            {% endif %}
-                            </tbody>
-                        </table>
+                        <div style="height:100%;width:100%;">
+                            <table class="table table-bordered lista-table">
+                                <thead>
+                                <tr>
+                                    <th>Data de Abertura</th>
+                                    <th>Status</th>
+                                    <th>Dispositivo</th>
+                                    <th>Defeito</th>
+                                    <th>Colaborador</th>
+                                    <th>Inf. Adicionais</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% if all_tarefas%}
+                                {% for tarefa in all_tarefas %}
+                                <tr class="clickable-row" data-href="{% url 'cadastro:editartarefaview' tarefa.id %}">
+                                    <td>{{tarefa.data_abertura}}</td>
+                                    <td>{{tarefa.status}}</td>
+                                    <td>{{tarefa.dispositivo}}</td>
+                                    <td>{{tarefa.defeito}}</td>
+                                    <td>{{tarefa.servico}}</td>
+                                    <td>{{tarefa.colaborador}}</td>
+                                    <td>{{tarefa.inf_adicionais}}</td>
+
+                                </tr>
+                                {% endfor %}
+                                {%endif%}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
